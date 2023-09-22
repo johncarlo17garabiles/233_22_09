@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Parts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            background-color: #ff69b4;
+            padding: 20px 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background-color: #ff69b4;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #ff1493;
+            transform: scale(1.05);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        li {
+            color: #333;
+        }
+
+        #Parts {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Computer Parts</h1>
+    <div class="container">
+        <div class="btn-container">
+            <div class="btn" id="joins">
+                <h2>join() Method</h2>
+                <button onclick="theJoin()">To Join</button>
+            </div>
+
+            <div class="btn" id="deletes">
+                <h2>delete() Method</h2>
+                <button onclick="theDelete()">To Delete</button>
+            </div>
+
+            <div class="btn" id="concats">
+                <h2>concat() Method</h2>
+                <button onclick="theConcat()">To Concat</button>
+            </div>
+
+            <div class="btn" id="compart">
+                <h2>Computer Part</h2>
+                <button onclick="theDisplay()">Display List</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const computerParts = ['CPU', 'GPU', 'RAM', 'Hard Drive', 'Motherboard', 'Power Supply', 'SSD', 'Monitor', 'Keyboard', 'Mouse'];
+    
+        function theDisplay() {
+            const Parts = document.getElementById('compart');
+            Parts.innerHTML = "";
+    
+            const ul = document.createElement('ul');
+            computerParts.forEach(brand => {
+                const li = document.createElement('li');
+                li.textContent = brand;
+                ul.appendChild(li);
+            });
+    
+            Parts.appendChild(ul);
+        }
+    
+        function theJoin() {
+            const joinedParts = computerParts.join(' -> ');
+            alert(joinedParts);
+        }
+    
+        function theDelete() {
+            delete computerParts[0];
+            alert("Deleted Computer Parts: " + computerParts[0]);
+        }
+    
+        function theConcat() {
+            const additionalParts = ['Graphics Card', 'Cooling Fan'];
+            const concatenatedParts = computerParts.concat(additionalParts);
+            alert(concatenatedParts.join(' -> '));
+        }
+    </script>
+</body>
+</html>
